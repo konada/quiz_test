@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		CF5E2CCF1DEC559A00FFD2D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5E2CCE1DEC559A00FFD2D0 /* AppDelegate.swift */; };
-		CF5E2CD11DEC559A00FFD2D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5E2CD01DEC559A00FFD2D0 /* ViewController.swift */; };
 		CF5E2CD41DEC559A00FFD2D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5E2CD21DEC559A00FFD2D0 /* Main.storyboard */; };
 		CF5E2CD71DEC559A00FFD2D0 /* quiz_test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF5E2CD51DEC559A00FFD2D0 /* quiz_test.xcdatamodeld */; };
 		CF5E2CD91DEC559A00FFD2D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5E2CD81DEC559A00FFD2D0 /* Assets.xcassets */; };
 		CF5E2CDC1DEC559A00FFD2D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5E2CDA1DEC559A00FFD2D0 /* LaunchScreen.storyboard */; };
+		CF5E2CE41DECA29A00FFD2D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5E2CE31DECA29A00FFD2D0 /* TableViewController.swift */; };
+		CFD0813D1DEDC01D00435DCC /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD0813C1DEDC01D00435DCC /* placeholder.png */; };
+		CFF1957E1DED8A4E0081DF41 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1957D1DED8A4E0081DF41 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CF5E2CCB1DEC559A00FFD2D0 /* quiz_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quiz_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5E2CCE1DEC559A00FFD2D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF5E2CD01DEC559A00FFD2D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF5E2CD31DEC559A00FFD2D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF5E2CD61DEC559A00FFD2D0 /* quiz_test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = quiz_test.xcdatamodel; sourceTree = "<group>"; };
 		CF5E2CD81DEC559A00FFD2D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF5E2CDB1DEC559A00FFD2D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF5E2CDD1DEC559A00FFD2D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF5E2CE31DECA29A00FFD2D0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		CFD0813C1DEDC01D00435DCC /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		CFF1957D1DED8A4E0081DF41 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,10 +61,12 @@
 			isa = PBXGroup;
 			children = (
 				CF5E2CCE1DEC559A00FFD2D0 /* AppDelegate.swift */,
-				CF5E2CD01DEC559A00FFD2D0 /* ViewController.swift */,
+				CF5E2CE31DECA29A00FFD2D0 /* TableViewController.swift */,
 				CF5E2CD21DEC559A00FFD2D0 /* Main.storyboard */,
 				CF5E2CD81DEC559A00FFD2D0 /* Assets.xcassets */,
+				CFD0813C1DEDC01D00435DCC /* placeholder.png */,
 				CF5E2CDA1DEC559A00FFD2D0 /* LaunchScreen.storyboard */,
+				CFF1957D1DED8A4E0081DF41 /* CustomTableViewCell.swift */,
 				CF5E2CDD1DEC559A00FFD2D0 /* Info.plist */,
 				CF5E2CD51DEC559A00FFD2D0 /* quiz_test.xcdatamodeld */,
 			);
@@ -127,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF5E2CDC1DEC559A00FFD2D0 /* LaunchScreen.storyboard in Resources */,
+				CFD0813D1DEDC01D00435DCC /* placeholder.png in Resources */,
 				CF5E2CD91DEC559A00FFD2D0 /* Assets.xcassets in Resources */,
 				CF5E2CD41DEC559A00FFD2D0 /* Main.storyboard in Resources */,
 			);
@@ -139,9 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF5E2CD11DEC559A00FFD2D0 /* ViewController.swift in Sources */,
+				CFF1957E1DED8A4E0081DF41 /* CustomTableViewCell.swift in Sources */,
 				CF5E2CCF1DEC559A00FFD2D0 /* AppDelegate.swift in Sources */,
 				CF5E2CD71DEC559A00FFD2D0 /* quiz_test.xcdatamodeld in Sources */,
+				CF5E2CE41DECA29A00FFD2D0 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +313,7 @@
 				CF5E2CE21DEC559A00FFD2D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
