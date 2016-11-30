@@ -14,6 +14,7 @@
 		CF5E2CDC1DEC559A00FFD2D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5E2CDA1DEC559A00FFD2D0 /* LaunchScreen.storyboard */; };
 		CF5E2CE41DECA29A00FFD2D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5E2CE31DECA29A00FFD2D0 /* TableViewController.swift */; };
 		CFD0813D1DEDC01D00435DCC /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD0813C1DEDC01D00435DCC /* placeholder.png */; };
+		CFD0813F1DEDDAA000435DCC /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0813E1DEDDAA000435DCC /* QuizViewController.swift */; };
 		CFF1957E1DED8A4E0081DF41 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF1957D1DED8A4E0081DF41 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		CF5E2CDD1DEC559A00FFD2D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF5E2CE31DECA29A00FFD2D0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		CFD0813C1DEDC01D00435DCC /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		CFD0813E1DEDDAA000435DCC /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		CFF1957D1DED8A4E0081DF41 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				CF5E2CCE1DEC559A00FFD2D0 /* AppDelegate.swift */,
 				CF5E2CE31DECA29A00FFD2D0 /* TableViewController.swift */,
 				CF5E2CD21DEC559A00FFD2D0 /* Main.storyboard */,
+				CFD0813E1DEDDAA000435DCC /* QuizViewController.swift */,
 				CF5E2CD81DEC559A00FFD2D0 /* Assets.xcassets */,
 				CFD0813C1DEDC01D00435DCC /* placeholder.png */,
 				CF5E2CDA1DEC559A00FFD2D0 /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFF1957E1DED8A4E0081DF41 /* CustomTableViewCell.swift in Sources */,
+				CFD0813F1DEDDAA000435DCC /* QuizViewController.swift in Sources */,
 				CF5E2CCF1DEC559A00FFD2D0 /* AppDelegate.swift in Sources */,
 				CF5E2CD71DEC559A00FFD2D0 /* quiz_test.xcdatamodeld in Sources */,
 				CF5E2CE41DECA29A00FFD2D0 /* TableViewController.swift in Sources */,

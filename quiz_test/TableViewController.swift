@@ -8,6 +8,8 @@
 
 import UIKit
 
+	var quizLink: String!
+
 class TableViewController: UITableViewController {
 	
 	var refreshCtrl: UIRefreshControl!
@@ -15,7 +17,8 @@ class TableViewController: UITableViewController {
 	var task: URLSessionDownloadTask!
 	var session: URLSession!
 	var cache:NSCache<AnyObject, AnyObject>!
-	
+	var quizID: Int64 = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
 			
@@ -54,8 +57,8 @@ class TableViewController: UITableViewController {
 		let dictionary = self.tableData[(indexPath as NSIndexPath).row] as! [String:AnyObject]
 		cell.quizImage?.image = UIImage(named: "placeholder")
 		cell.quizTitleLabel.text = dictionary["title"] as? String
-		let quizID = dictionary["id"] as! Int64
-		print("\(quizID)")
+		//quizID = dictionary["id"] as! Int64
+		//print("\(quizID)")
 		
 		if (self.cache.object(forKey: (indexPath as NSIndexPath).row as AnyObject) != nil){
 			// Use cache
@@ -80,6 +83,13 @@ class TableViewController: UITableViewController {
 		}
 		return cell
 	}
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+		let dictionary = self.tableData[(indexPath as NSIndexPath).row] as! [String:AnyObject]
+		quizID = dictionary["id"] as! Int64
+		quizLink = "\(quizID)"
+	}
+
 	
 	func refreshTableView(){
 		
