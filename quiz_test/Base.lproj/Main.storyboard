@@ -196,11 +196,108 @@
                         <outletCollection property="buttons" destination="jnN-PC-e3f" collectionClass="NSMutableArray" id="1uH-og-eaT"/>
                         <outletCollection property="buttons" destination="DAn-dT-Apj" collectionClass="NSMutableArray" id="7ac-wk-rG6"/>
                         <outletCollection property="buttons" destination="TjT-Z5-QNw" collectionClass="NSMutableArray" id="db8-o4-X0V"/>
+                        <segue destination="VCN-hS-PLi" kind="presentation" identifier="QuizFinished" id="p3O-XK-HmS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mkh-g5-5Dz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3816.8000000000002" y="101.19940029985008"/>
+            <point key="canvasLocation" x="2657" y="114"/>
+        </scene>
+        <!--FinishedQuizViewController-->
+        <scene sceneID="Yxr-pd-xqT">
+            <objects>
+                <viewController storyboardIdentifier="FinishedQuizViewController" title="FinishedQuizViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VCN-hS-PLi" customClass="FinishedQuizViewController" customModule="quiz_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7bQ-su-gba"/>
+                        <viewControllerLayoutGuide type="bottom" id="pVC-Eg-9XW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="52P-UL-cI1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaE-Uo-O82">
+                                <rect key="frame" x="188" y="453" width="167" height="87"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MaE-Uo-O82" secondAttribute="height" multiplier="167:87" id="hBs-o5-WsF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Rozwiąż jeszcze raz">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="button1Tap:" destination="exq-iu-mNA" eventType="touchUpInside" id="4df-om-ybF"/>
+                                    <action selector="resetScore:" destination="VCN-hS-PLi" eventType="touchUpInside" id="m7p-pt-fz4"/>
+                                    <segue destination="exq-iu-mNA" kind="show" id="3cY-w3-aEE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3Q-ka-EgM">
+                                <rect key="frame" x="20" y="453" width="167" height="87"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="z3Q-ka-EgM" secondAttribute="height" multiplier="167:87" id="9IP-zi-CLK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Lista Quizów">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="button1Tap:" destination="exq-iu-mNA" eventType="touchUpInside" id="G1K-MJ-Qah"/>
+                                    <segue destination="nAN-vh-KGg" kind="show" id="zOu-BF-e1f"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brawo!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TS-cm-UtP">
+                                <rect key="frame" x="120" y="48" width="134" height="50"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="43"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Udało Ci się odpowiedzieć na:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkB-he-iWG">
+                                <rect key="frame" x="73" y="106" width="229" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pytań" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekx-Ee-6DF">
+                                <rect key="frame" x="166" y="396" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gch-4G-Xtn">
+                                <rect key="frame" x="128.5" y="230" width="118" height="53"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="46"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pVC-Eg-9XW" firstAttribute="top" secondItem="MaE-Uo-O82" secondAttribute="bottom" constant="127" id="3VH-v5-K46"/>
+                            <constraint firstItem="8TS-cm-UtP" firstAttribute="top" secondItem="7bQ-su-gba" secondAttribute="bottom" constant="28" id="57b-ZZ-Vd8"/>
+                            <constraint firstItem="YkB-he-iWG" firstAttribute="top" secondItem="8TS-cm-UtP" secondAttribute="bottom" constant="8" id="9aL-Bs-npR"/>
+                            <constraint firstItem="8TS-cm-UtP" firstAttribute="centerX" secondItem="52P-UL-cI1" secondAttribute="centerX" id="CPv-RG-xrj"/>
+                            <constraint firstItem="Gch-4G-Xtn" firstAttribute="top" secondItem="YkB-he-iWG" secondAttribute="bottom" constant="103" id="K8G-Fc-6iI"/>
+                            <constraint firstItem="MaE-Uo-O82" firstAttribute="top" secondItem="Ekx-Ee-6DF" secondAttribute="bottom" constant="36" id="VMe-Eo-iev"/>
+                            <constraint firstItem="z3Q-ka-EgM" firstAttribute="top" secondItem="Ekx-Ee-6DF" secondAttribute="bottom" constant="36" id="VhX-JF-pCw"/>
+                            <constraint firstItem="Ekx-Ee-6DF" firstAttribute="centerX" secondItem="52P-UL-cI1" secondAttribute="centerX" id="rP2-c1-bL4"/>
+                            <constraint firstItem="z3Q-ka-EgM" firstAttribute="leading" secondItem="52P-UL-cI1" secondAttribute="leading" constant="20" id="sVe-Fk-BHU"/>
+                            <constraint firstItem="pVC-Eg-9XW" firstAttribute="top" secondItem="z3Q-ka-EgM" secondAttribute="bottom" constant="127" id="siO-rh-f74"/>
+                            <constraint firstItem="YkB-he-iWG" firstAttribute="centerX" secondItem="52P-UL-cI1" secondAttribute="centerX" id="urw-iA-eu6"/>
+                            <constraint firstItem="Gch-4G-Xtn" firstAttribute="centerX" secondItem="52P-UL-cI1" secondAttribute="centerX" id="xqH-gv-PgY"/>
+                            <constraint firstItem="Ekx-Ee-6DF" firstAttribute="top" secondItem="Gch-4G-Xtn" secondAttribute="bottom" constant="113" id="ySs-Nn-8KT"/>
+                            <constraint firstAttribute="trailing" secondItem="MaE-Uo-O82" secondAttribute="trailing" constant="20" id="zAw-xB-aq1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scoreField" destination="Gch-4G-Xtn" id="nFJ-af-eiy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvG-Zq-bYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3452" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gfj-BB-Quo">
@@ -218,7 +315,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsh-9q-FH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2877.5999999999999" y="101.19940029985008"/>
+            <point key="canvasLocation" x="1870" y="114"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3cY-w3-aEE"/>
+        <segue reference="zOu-BF-e1f"/>
+    </inferredMetricsTieBreakers>
 </document>

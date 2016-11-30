@@ -35,6 +35,8 @@ class QuizViewController: UIViewController {
 			session = URLSession.shared
 			task = URLSessionDownloadTask()
 			
+			questions = []
+			
 			createQuestions()
 			
 	}
@@ -67,8 +69,11 @@ func pickQuestion(){
 	}
 	else{
 		NSLog("Done!")
-		print("Twoj wynik to: \(score)")
-		
+		let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "FinishedQuizViewController") as! FinishedQuizViewController
+		//secondViewController.scoreField.text! = "\(score)"
+		performSegue(withIdentifier: "QuizFinished", sender: self)
+		print(score)
+		print(totalScore)
 	}
 
 
