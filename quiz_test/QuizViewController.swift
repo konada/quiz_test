@@ -15,6 +15,7 @@ class QuizViewController: UIViewController {
 	
 	@IBOutlet var questionLabel: UILabel!
 	@IBOutlet var buttons: [UIButton]!
+	@IBOutlet var quizProgress: UIProgressView!
 	
 	var task: URLSessionDownloadTask!
 	var session: URLSession!
@@ -27,7 +28,9 @@ class QuizViewController: UIViewController {
 	var correctAnswerTest = [Bool]()
 	var answers : [[String]]!
 	var correctAnswers : [[Bool]]!
-
+	var answerList: NSArray = []
+	var answerCount: Int = 0
+	var totalQuestionsCount: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +60,7 @@ func pickQuestion(){
 		questionLabel.text = "\(questions[qNumber - 1])"
 	
 		
-		for i in 0..<buttons.count {
+		for i in 0...answerCount - 1 {
 			buttons[i].setTitle(answers[qNumber - 1][i], for: UIControlState())
 		}
 		
@@ -66,11 +69,11 @@ func pickQuestion(){
 		print(answerNumber)
 		
 		questions.remove(at: qNumber - 1)
+		
+		setProgress()
 	}
 	else{
 		NSLog("Done!")
-		let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "FinishedQuizViewController") as! FinishedQuizViewController
-		//secondViewController.scoreField.text! = "\(score)"
 		performSegue(withIdentifier: "QuizFinished", sender: self)
 		print(score)
 		print(totalScore)
@@ -139,26 +142,36 @@ func pickQuestion(){
 						let dic = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as! NSDictionary
 						self.quizData = dic["questions"] as! [NSDictionary]!
 						DispatchQueue.main.async(execute: { () -> Void in
-							for index in 0...self.quizData.count-1 {
+							
+							for index in 0...(self.quizData.count - 1) {
 								let dictionary = self.quizData[index] as! [String : AnyObject]
 								self.questions.append(dictionary["text"] as! String)
-								for index in 0...3 {
-									let answers = ((dictionary["answers"] as! NSArray)[index] as? NSDictionary)?["text"] as? String
-									let correctAnswers = ((dictionary["answers"] as! NSArray)[index] as? NSDictionary)?["isCorrect"] as? Bool
+								
+								self.answerList = (dictionary["answers"] as! NSArray)
+								self.answerCount = self.answerList.count
+								
+								for index in 0...(self.answerCount - 1) {
+									let answers = (self.answerList[index] as? NSDictionary)?["text"] as? String
+									let correctAnswers = ((self.answerList)[index] as? NSDictionary)?["isCorrect"] as? Bool
 									self.answersTest.append(answers!)
 									self.correctAnswerTest.append(correctAnswers ?? false)
+									
 								}
+								
+								self.correctAnswers = stride(from: 0, to: self.correctAnswerTest.count, by: self.answerCount).map {
+									let end = self.correctAnswerTest.endIndex
+									let chunkEnd = self.correctAnswerTest.index($0, offsetBy: self.answerCount, limitedBy: end) ?? end
+									return Array(self.correctAnswerTest[$0..<chunkEnd])
+								}
+								
+								self.answers = stride(from: 0, to: self.answersTest.count, by: self.answerCount).map {
+									let end = self.answersTest.endIndex
+									let chunkEnd = self.answersTest.index($0, offsetBy: self.answerCount, limitedBy: end) ?? end
+									return Array(self.answersTest[$0..<chunkEnd])
+								}
+								
 							}
-							self.correctAnswers = stride(from: 0, to: self.correctAnswerTest.count, by: 4).map {
-								let end = self.correctAnswerTest.endIndex
-								let chunkEnd = self.correctAnswerTest.index($0, offsetBy: 4, limitedBy: end) ?? end
-								return Array(self.correctAnswerTest[$0..<chunkEnd])
-							}
-							self.answers = stride(from: 0, to: self.answersTest.count, by: 4).map {
-								let end = self.answersTest.endIndex
-								let chunkEnd = self.answersTest.index($0, offsetBy: 4, limitedBy: end) ?? end
-								return Array(self.answersTest[$0..<chunkEnd])
-							}
+							self.totalQuestionsCount = self.questions.count
 							self.pickQuestion()
 						})
 					}catch{
@@ -168,10 +181,16 @@ func pickQuestion(){
 			})
 			task.resume()
 	}
-	}
-			
-
-
-
 	
+	func setProgress(){
+		
+		quizProgress.setProgress((Float(totalScore) / Float(totalQuestionsCount)), animated: true )
+	}
+	
+	}
+
+
+
+
+
 

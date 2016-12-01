@@ -7,23 +7,24 @@
 //
 
 import UIKit
+import CoreData
 
 class FinishedQuizViewController: UIViewController, UITextFieldDelegate {
 
+	
 	@IBOutlet weak var scoreField: UILabel!
 
-	
-	
 	@IBAction func resetScore(_ sender: AnyObject) {
 		score = 0
 		totalScore = 0
-		
 	}
+
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		scoreField.text = "\(Int(Double(score) / Double(totalScore) * 100)) %"
+		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

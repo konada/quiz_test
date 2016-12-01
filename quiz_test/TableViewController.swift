@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 	var quizLink: String!
 
 class TableViewController: UITableViewController {
+	
 	
 	var refreshCtrl: UIRefreshControl!
 	var tableData:[Any]!
@@ -58,7 +60,6 @@ class TableViewController: UITableViewController {
 		cell.quizImage?.image = UIImage(named: "placeholder")
 		cell.quizTitleLabel.text = dictionary["title"] as? String
 		//quizID = dictionary["id"] as! Int64
-		//print("\(quizID)")
 		
 		if (self.cache.object(forKey: (indexPath as NSIndexPath).row as AnyObject) != nil){
 			// Use cache
@@ -93,7 +94,7 @@ class TableViewController: UITableViewController {
 	
 	func refreshTableView(){
 		
-		let url:URL! = URL(string: "http://quiz.o2.pl/api/v1/quizzes/0/5")
+		let url:URL! = URL(string: "http://quiz.o2.pl/api/v1/quizzes/0/100")
 		task = session.downloadTask(with: url, completionHandler: { (location: URL?, response: URLResponse?, error: Error?) -> Void in
 			
 			if location != nil{
@@ -104,7 +105,6 @@ class TableViewController: UITableViewController {
 					DispatchQueue.main.async(execute: { () -> Void in
 						self.tableView.reloadData()
 						self.refreshControl?.endRefreshing()
-						//print(self.tableData)
 					})
 				}catch{
 					print("something went wrong, try again")
@@ -113,7 +113,6 @@ class TableViewController: UITableViewController {
 		})
   task.resume()
 	}
-
 
 	}
 
