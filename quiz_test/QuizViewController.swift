@@ -38,8 +38,6 @@ class QuizViewController: UIViewController {
 			session = URLSession.shared
 			task = URLSessionDownloadTask()
 			
-			questions = []
-			
 			createQuestions()
 			
 	}
@@ -62,6 +60,13 @@ func pickQuestion(){
 		
 		for i in 0...answerCount - 1 {
 			buttons[i].setTitle(answers[qNumber - 1][i], for: UIControlState())
+		}
+		
+		for i in 0...buttons.count - 1 {
+			if buttons[i].titleLabel?.text == nil {
+				print("yes")
+				buttons[i].isHidden = true
+			}
 		}
 		
 		answerNumber = correctAnswers[qNumber - 1]
@@ -132,8 +137,9 @@ func pickQuestion(){
 	}
 	
 		func createQuestions(){
+			
 			let url:URL! = URL(string: "http://quiz.o2.pl/api/v1/quiz/"+quizLink+"/0")
-			print(url)
+			
 			task = session.downloadTask(with: url, completionHandler: { (location: URL?, response: URLResponse?, error: Error?) -> Void in
 				
 				if location != nil{
@@ -155,7 +161,6 @@ func pickQuestion(){
 									let correctAnswers = ((self.answerList)[index] as? NSDictionary)?["isCorrect"] as? Bool
 									self.answersTest.append(answers!)
 									self.correctAnswerTest.append(correctAnswers ?? false)
-									
 								}
 								
 								self.correctAnswers = stride(from: 0, to: self.correctAnswerTest.count, by: self.answerCount).map {

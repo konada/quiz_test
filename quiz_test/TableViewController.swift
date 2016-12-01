@@ -13,7 +13,8 @@ import CoreData
 
 class TableViewController: UITableViewController {
 	
-	
+//	let managedObjectContext = (UIApplication.shared.delegate 
+//	as! AppDelegate).managedObjectContext
 	var refreshCtrl: UIRefreshControl!
 	var tableData:[Any]!
 	var task: URLSessionDownloadTask!
@@ -113,6 +114,36 @@ class TableViewController: UITableViewController {
 		})
   task.resume()
 	}
+	
+	//	func findQuizId(){
+
+	//		let entityDescription =
+	//			NSEntityDescription.entity(forEntityName: "Quizes",
+	//			                           in: managedObjectContext)
+	//
+	//		let request: NSFetchRequest<Quizes> = Quizes.fetchRequest()
+	//		request.entity = entityDescription
+	//
+	//		let pred = NSPredicate(format: "(quizNum = %@)", quizLink)
+	//		request.predicate = pred
+	//
+	//		do {
+	//			var results =
+	//				try managedObjectContext.fetch(request as!
+	//					NSFetchRequest<NSFetchRequestResult>)
+	//
+	//			if results.count > 0 {
+	//				let match = results[0] as! NSManagedObject
+	//				quizLink = match.value(forKey: "quizNum") as! String!
+	//				print("Matches found: \(results.count)")
+	//			} else {
+	//				print("No Match")
+	//			}
+	//
+	//		} catch let error {
+	//			print(error.localizedDescription)
+	//		}
+	//	}
 
 	}
 
